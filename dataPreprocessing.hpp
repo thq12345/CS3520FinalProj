@@ -37,13 +37,20 @@ namespace finalproject {
     // This is specifically reducing the dimension of the data, making it less complex.
     Eigen::MatrixXd dataReduction(Eigen::MatrixXd data);
 
+
+    // Split the data into feature and target data, labeled as X and Y
+
+    std::vector<Eigen::MatrixXd> featureTargetSplit(Eigen::MatrixXd data, int targetColumnIndex);
+
+
     // Split the data into training and testing sets.
     // Takes in the Eigen matrix of the data, the percentage of the data to be used as the testing set, 
     // and the index of the target column.
     // Return a vector of 4 matrices, x_train, y_train, x_test, y_test
     // The testSize is the percentage of the data to be used as the testing set.
     // For example, if testSize = 0.2, then 20% of the data will be used as the testing set.
-    std::vector<Eigen::MatrixXd> trainTestSplit(Eigen::MatrixXd data, double testSize, int targetColumnIndex);
+    std::vector<Eigen::MatrixXd> trainTestSplit(Eigen::MatrixXd data, double testSize, 
+    int targetColumnIndex);
 
     // Convert the data from an eigen matrix to armadillo matrix format (arma::mat)
     // This is used for the MLPack library
