@@ -1,0 +1,28 @@
+<mxfile host="app.diagrams.net" modified="2023-03-26T16:55:22.995Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="lsljiC94_fdzP69HlfXr" version="21.1.0" type="device">
+  <diagram id="prtHgNgQTEPvFCAcTncT" name="Page-1">
+    <mxGraphModel dx="1050" dy="572" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="dNxyNK7c78bLwvsdeMH5-11" value="Final Project Architecture" style="swimlane;html=1;startSize=20;horizontal=1;containerType=tree;glass=0;" parent="1" vertex="1">
+          <mxGeometry x="70" y="90" width="710" height="540" as="geometry" />
+        </mxCell>
+        <mxCell id="OFZLQip-sawVfRRXGaNj-1" value="Data Processing" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="dNxyNK7c78bLwvsdeMH5-11" vertex="1">
+          <mxGeometry x="100" y="165" width="210" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="OFZLQip-sawVfRRXGaNj-2" value="+Loading Data&lt;br&gt;+Statistics&lt;br&gt;+Data Cleaning&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt; &lt;/span&gt;- Data Imputation&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt; &lt;/span&gt;- Outlier Removal&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt; &lt;/span&gt;- and more depend on data&lt;br&gt;+Training Testing Splitting&lt;br&gt;+Output data" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="OFZLQip-sawVfRRXGaNj-1" vertex="1">
+          <mxGeometry y="50" width="210" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="OFZLQip-sawVfRRXGaNj-3" value="Machine Learning" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="dNxyNK7c78bLwvsdeMH5-11" vertex="1">
+          <mxGeometry x="390" y="165" width="289" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="OFZLQip-sawVfRRXGaNj-4" value="+Load Data&lt;br&gt;+Linear Regression&lt;br&gt;+Logistic Regression (For classification)&lt;br&gt;+XGBoost/Gradient Boosting (Boosting Ensemble)&lt;br&gt;+Neural Network (Need to decide package)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="OFZLQip-sawVfRRXGaNj-3" vertex="1">
+          <mxGeometry y="50" width="289" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="OFZLQip-sawVfRRXGaNj-5" value="Need cpp and hpp file for both class??&lt;br&gt;Any additional classes?&lt;br&gt;Save printed output in a txt file." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="dNxyNK7c78bLwvsdeMH5-11" vertex="1">
+          <mxGeometry x="400" y="410" width="239" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
