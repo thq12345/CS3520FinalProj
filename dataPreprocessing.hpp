@@ -38,10 +38,12 @@ namespace finalproject {
     Eigen::MatrixXd dataReduction(Eigen::MatrixXd data);
 
     // Split the data into training and testing sets.
-    // Return a vector of two matrices, the first one is the training set, the second one is the testing set.
+    // Takes in the Eigen matrix of the data, the percentage of the data to be used as the testing set, 
+    // and the index of the target column.
+    // Return a vector of 4 matrices, x_train, y_train, x_test, y_test
     // The testSize is the percentage of the data to be used as the testing set.
     // For example, if testSize = 0.2, then 20% of the data will be used as the testing set.
-    std::vector<Eigen::MatrixXd> trainTestSplit(Eigen::MatrixXd data, double testSize);
+    std::vector<Eigen::MatrixXd> trainTestSplit(Eigen::MatrixXd data, double testSize, int targetColumnIndex);
 
     // Convert the data from an eigen matrix to armadillo matrix format (arma::mat)
     // This is used for the MLPack library

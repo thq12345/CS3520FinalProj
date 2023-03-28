@@ -23,3 +23,5 @@ void logisticRegression(Eigen::MatrixXd trainingData, Eigen::MatrixXd testingDat
 void adaboost(Eigen::MatrixXd trainingData, Eigen::MatrixXd testingData);
 
 void neuralNetwork(Eigen::MatrixXd trainingData, Eigen::MatrixXd testingData);
+
+#endif

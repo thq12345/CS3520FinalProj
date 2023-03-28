@@ -9,6 +9,7 @@
 int main()
 {
   Eigen::MatrixXd test_data = finalproject::openData("gold.csv");
-  std::cout << test_data;
+  std::vector<Eigen::MatrixXd> splitted = finalproject::trainTestSplit(test_data, 0.2, 5);
+  std::cout << splitted[0] << std::endl;
   return 0;
 }
