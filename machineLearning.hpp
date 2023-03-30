@@ -16,12 +16,13 @@
 // The models will be taking in training data and testing data generated from dataPreprocessing functions
 // and will return the corresponding metrics of the model, such as accuracy, precision, recall, etc.
 
-void linearRegression(Eigen::MatrixXd trainingData, Eigen::MatrixXd testingData);
+namespace finalproject {
+void linearRegression(Eigen::MatrixXd xtrain, Eigen::MatrixXd xtest, Eigen::MatrixXd ytrain, Eigen::MatrixXd ytest);
 
-void logisticRegression(Eigen::MatrixXd trainingData, Eigen::MatrixXd testingData);
+void logisticRegression(Eigen::MatrixXd xtrain, Eigen::MatrixXd xtest, Eigen::MatrixXd ytrain, Eigen::MatrixXd ytest);
 
 void adaboost(Eigen::MatrixXd trainingData, Eigen::MatrixXd testingData);
 
 void neuralNetwork(Eigen::MatrixXd trainingData, Eigen::MatrixXd testingData);
-
+}
 #endif

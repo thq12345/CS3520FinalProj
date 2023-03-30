@@ -39,7 +39,7 @@ namespace finalproject {
 
 
     // Split the data into feature and target data, labeled as X and Y
-
+    // Takes in the Eigen matrix of the data, and the index of the target column.
     std::vector<Eigen::MatrixXd> featureTargetSplit(Eigen::MatrixXd data, int targetColumnIndex);
 
 
@@ -49,8 +49,7 @@ namespace finalproject {
     // Return a vector of 4 matrices, x_train, y_train, x_test, y_test
     // The testSize is the percentage of the data to be used as the testing set.
     // For example, if testSize = 0.2, then 20% of the data will be used as the testing set.
-    std::vector<Eigen::MatrixXd> trainTestSplit(Eigen::MatrixXd data, double testSize, 
-    int targetColumnIndex);
+    std::vector<Eigen::MatrixXd> trainTestSplit(Eigen::MatrixXd feature, Eigen::MatrixXd target, double testSize);
 
     // Convert the data from an eigen matrix to armadillo matrix format (arma::mat)
     // This is used for the MLPack library

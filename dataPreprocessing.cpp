@@ -45,6 +45,16 @@ Eigen::MatrixXd openData(std::string fileToOpen){
   Eigen::RowMajor>>(matrixEntries.data(),matrixRowNumber, matrixEntries.size() / matrixRowNumber);
 }
 
+void statisticalAnalysis(Eigen::MatrixXd data) {
+  std::cout << "Mean: " << std::endl << data.colwise().mean() << std::endl;
+  std::cout << "Standard Deviation: " << std::endl << data.colwise().norm() << std::endl;
+  std::cout << "Min: " << std::endl << data.colwise().minCoeff() << std::endl;
+  std::cout << "Max: " << std::endl << data.colwise().maxCoeff() << std::endl;
+  Eigen::VectorXd variance = ((data.array().square().colwise().sum() / data.rows()) - 
+  data.colwise().mean().array().square()).matrix();
+  std::cout << "Variance: " << std::endl << variance << std::endl;
+}
+
 // our target column is going to be the index column (so if its column 4, its index 3)
  std::vector<Eigen::MatrixXd> featureTargetSplit(Eigen::MatrixXd data, int targetColumnIndex) {
    int num_rows = data.rows();
@@ -74,9 +84,10 @@ Eigen::MatrixXd openData(std::string fileToOpen){
  }
 
 
-std::vector<Eigen::MatrixXd> trainTestSplit(Eigen::MatrixXd data, double testSize, int targetColumnIndex) {
-  int num_rows = data.rows();
-  int num_cols = data.cols();
+std::vector<Eigen::MatrixXd> trainTestSplit(Eigen::MatrixXd feature, Eigen::MatrixXd target,
+ double testSize) {
+  int num_rows = feature.rows();
+  int num_cols = feature.cols();
   int num_test_rows = num_rows * testSize;
   int num_train_rows = num_rows - num_test_rows;
   Eigen::MatrixXd x_train(num_train_rows, num_cols - 1);
@@ -86,11 +97,11 @@ std::vector<Eigen::MatrixXd> trainTestSplit(Eigen::MatrixXd data, double testSiz
   
   for (int i = 0; i < num_rows; i++) {
     if (i < num_test_rows) {
-      x_test.row(i) = data.row(i).head(num_cols - 1);
-      y_test.row(i) = data.row(i).tail(1);
+      x_test.row(i) = feature.row(i).head(num_cols - 1);
+      y_test.row(i) = target.row(i).tail(1);
     } else {
-      x_train.row(i - num_test_rows) = data.row(i).head(num_cols - 1);
-      y_train.row(i - num_test_rows) = data.row(i).tail(1);
+      x_train.row(i - num_test_rows) = feature.row(i).head(num_cols - 1);
+      y_train.row(i - num_test_rows) = target.row(i).tail(1);
     }
   }
   std::vector<Eigen::MatrixXd> result;
@@ -100,4 +111,14 @@ std::vector<Eigen::MatrixXd> trainTestSplit(Eigen::MatrixXd data, double testSiz
   result.push_back(y_test);
   return result;
 }
+
+  arma::mat eigenToArma(Eigen::MatrixXd data) {
+    arma::mat arma_data(data.rows(), data.cols());
+    for (int i = 0; i < data.rows(); i++) {
+      for (int j = 0; j < data.cols(); j++) {
+        arma_data(i, j) = data(i, j);
+      }
+    }
+    return arma_data;
+  }
 }
