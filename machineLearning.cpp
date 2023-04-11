@@ -191,7 +191,7 @@ namespace finalproject {
         Eigen::MatrixXd w2 = Eigen::MatrixXd::Random(hidden_dim, output_dim);
 
         // training the neural network
-        // epochs is the number of times we go through the whole training set and train
+        // epochs is the number of times we go through the whole training set and train the NN
         // in other words, epoch is how many time we train the neural networks
         // neural network is trained via backpropagation, which we described below
         for (int i = 0; i < num_epochs; i++) {

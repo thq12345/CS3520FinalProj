@@ -2,4 +2,4 @@ g++ -Wall -Wextra -pedantic -std=c++17 -g main.cpp dataPreprocessing.cpp machine
 ./project.exe
 
 
-sudo apt-get install libblas-dev
+//sudo apt-get install libblas-dev
