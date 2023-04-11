@@ -1,2 +1,5 @@
-g++ -Wall -Wextra -pedantic -fopenmp -std=c++17 -g main.cpp dataPreprocessing.cpp machineLearning.cpp -o project.exe
+g++ -Wall -Wextra -pedantic -std=c++17 -g main.cpp dataPreprocessing.cpp machineLearning.cpp -o project.exe
 ./project.exe
+
+
+sudo apt-get install libblas-dev
