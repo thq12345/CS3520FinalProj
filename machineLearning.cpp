@@ -220,8 +220,6 @@ namespace finalproject {
             if (i % 20 == 0) {
                 // test the neural network
                 // manual feed forward
-                // Eigen::MatrixXd hidden_layer = relu(xtest * w1);
-                // Eigen::MatrixXd output_layer = sigmoid(hidden_layer * w2);
                 Eigen::MatrixXd hidden = relu_activation(xtest * w1);
                 Eigen::MatrixXd output = sigmoid_activation(hidden * w2);
                 Eigen::MatrixXd ypred = (output.array() > 0.5).cast<double>();
