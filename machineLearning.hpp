@@ -12,6 +12,8 @@
 // 1. Linear Regression (standard)
 // 2. Ridge Regularization with hyperparameter tuning (L2 regularization)
 // 3. Gradient Descent based Logistic Regression
+// 4. K-Nearest Neighbors
+// 5. Neural Network
 // Because of the library import issues, every model will be implemented FROM SCRATCH.
 // The models will be taking in training data and testing data generated from dataPreprocessing functions
 // and will return the corresponding metrics of the model, such as accuracy and mean squared error.

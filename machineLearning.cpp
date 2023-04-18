@@ -105,6 +105,7 @@ namespace finalproject {
         }
     }
 
+    // most basic way to calculate distance between two vectors
     double euclideanDistance(VectorXd a, VectorXd b) {
         return (a - b).norm();
     }
@@ -137,7 +138,7 @@ namespace finalproject {
                     }
                 }
 
-                // Majority vote
+                // Majority vote, classify to whichever class has more votes
                 predict(i) = (num_spam > num_nonspam) ? 1 : 0;
 
             }
@@ -217,6 +218,8 @@ namespace finalproject {
             w1 -= learning_rate * (xtrain.transpose() * delta_hidden);
 
             // print loss and accuracy every 20 iterations
+            // this acts as a progress bar, we can see the accuracy changing 
+            // as we train the network
             if (i % 20 == 0) {
                 // test the neural network
                 // manual feed forward

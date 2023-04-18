@@ -9,18 +9,22 @@
 int main()
 {
   //gold dataset
-  // Eigen::MatrixXd test_data = finalproject::openData("gold.csv");
+  Eigen::MatrixXd test_data = finalproject::openData("gold.csv");
   
-  
-  // std::vector<Eigen::MatrixXd> x_y_vector = finalproject::featureTargetSplit(test_data, 7);
-  // std::vector<Eigen::MatrixXd> comb_cleaned_gold = finalproject::dataCleaning(x_y_vector[1], x_y_vector[0]);
-  // x_y_vector[1] = comb_cleaned_gold[0];
-  // x_y_vector[0] = comb_cleaned_gold[1];
-  // std::vector<Eigen::MatrixXd> splitted = finalproject::trainTestSplit(x_y_vector[1], x_y_vector[0], 0.2);
-  // finalproject::shapePrinting(splitted);
-  // finalproject::linearRegression(splitted[0], splitted[2], splitted[1], splitted[3]);
-  // finalproject::linearRegressionWithRidge(splitted[0], splitted[2], splitted[1], splitted[3]);
+  std::cout << "****************Gold Dataset (Regression Problem)****************" << std::endl;
+  std::vector<Eigen::MatrixXd> x_y_vector = finalproject::featureTargetSplit(test_data, 7);
+  std::vector<Eigen::MatrixXd> comb_cleaned_gold = finalproject::dataCleaning(x_y_vector[1], x_y_vector[0]);
+  x_y_vector[1] = comb_cleaned_gold[0];
+  x_y_vector[0] = comb_cleaned_gold[1];
+  std::vector<Eigen::MatrixXd> splitted = finalproject::trainTestSplit(x_y_vector[1], x_y_vector[0], 0.2);
+  finalproject::shapePrinting(splitted);
+  std::cout << "****************Gold Dataset Linear Regression****************" << std::endl;
+  finalproject::linearRegression(splitted[0], splitted[2], splitted[1], splitted[3]);
+  std::cout << "****************Gold Dataset Ridge Regularization****************" << std::endl;
+  finalproject::linearRegressionWithRidge(splitted[0], splitted[2], splitted[1], splitted[3]);
 
+
+  std::cout << "****************Spambase (Classification Problem)****************" << std::endl;
   //spambase dataset
   Eigen::MatrixXd spambase_data = finalproject::openData("spambase.data");
   std::vector<Eigen::MatrixXd> x_y_vector_sb = finalproject::featureTargetSplit(spambase_data, 57);
@@ -33,9 +37,12 @@ int main()
   std::vector<Eigen::MatrixXd> splitted_sb = finalproject::trainTestSplit(x_y_vector_sb[1], x_y_vector_sb[0], 0.2);
   
   finalproject::shapePrinting(splitted_sb);
+  std::cout << "****************Spambase Dataset Logistic Regression****************" << std::endl;
   finalproject::logisticRegression(splitted_sb[0], splitted_sb[2], splitted_sb[1], splitted_sb[3]);
-  //finalproject::knn(splitted_sb[0], splitted_sb[2], splitted_sb[1], splitted_sb[3]);
+  std::cout << "****************Spambase Dataset K-Nearest Neighbor****************" << std::endl;
+  finalproject::knn(splitted_sb[0], splitted_sb[2], splitted_sb[1], splitted_sb[3]);
 
+  std::cout << "****************Spambase Dataset Neural Network****************" << std::endl;
   //execution takes a while
   //make adjustment on hyperparameter inside the function
   //recommend 900 epochs base on our observation
